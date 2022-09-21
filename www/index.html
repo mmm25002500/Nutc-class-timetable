@@ -50,6 +50,9 @@
 						<ul>
 							<li><a href="#curriculum" class="active">課表</a></li>
 							<li><a href="#ClassroomInfo">教室資訊</a></li>
+							<li><a href="#map1">三民校區平面圖</a></li>
+							<li><a href="#map2">民生校區平面圖</a></li>
+							<!-- <li><a href="#map2">民生校區平面圖</a></li> -->
 						</ul>
 					</nav>
 
@@ -57,7 +60,7 @@
 					<div id="main">
                         <!-- {{data}} -->
                         <!-- Curriculum -->
-                        <input type="text" class="form-control" id="search" placeholder="快速搜尋您的課表吧!" v-model="cacheSearch">
+                        <input type="text" class="form-control" id="search" placeholder="快速搜尋您的教室吧!" v-model="cacheSearch">
 						
 							<select name="school" v-if="school_id" v-model="cacheID">
 								<option value="" disabled>請選擇您的班級</option>
@@ -98,6 +101,18 @@
 										</tr>
 									</tbody>
 								</table>
+							</section>
+
+							<section id="map1" class="main inactive">
+								<center>
+									<img style="width: 100%;" src="https://www.nutc.edu.tw/ezfiles/0/1000/img/11/map-1.jpg" alt="Can not show img">
+								</center>
+							</section>
+
+							<section id="map2" class="main inactive">
+								<center>
+									<img style="width: 100%;" src="https://ga.nutc.edu.tw/ezfiles/77/1077/img/1554/971425825.jpg" alt="Can not show img">
+								</center>
 							</section>
 					</div>
 
