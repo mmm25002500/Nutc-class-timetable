@@ -32,7 +32,7 @@ def getTable():
             for element in cols:
                 key += 1
     #            print(element.text)
-                temp_text = element.text.replace('｜', '<br>~<br>') \
+                temp_text = element.text.replace('｜', '~') \
                                         .replace(' / ', '<br>')
                 if key != 1 and key !=2:
                     if '、' in temp_text:
