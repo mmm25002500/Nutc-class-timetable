@@ -4,6 +4,8 @@
 	service@cutespirit.org
 	Updated on 2022/09/06 for version 2.0
 	UpdInfo: finish the content
+
+	TODO: 手機內容控制(RWD)
 -->
 <html>
 	<head>
@@ -39,14 +41,15 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>課表</h1>
-						<p>中科大課表</p>
+						<h1>臺中科大課表</h1>
+						<p>打造比學校系統更好用的課表</p>
 					</header>
 
                 <!-- Nav -->
 					<nav id="nav">
 						<ul>
 							<li><a href="#curriculum" class="active">課表</a></li>
+							<li><a href="#ClassroomInfo">教室資訊</a></li>
 						</ul>
 					</nav>
 
@@ -54,24 +57,45 @@
 					<div id="main">
                         <!-- {{data}} -->
                         <!-- Curriculum -->
-                        <input type="text" class="form-control" id="search" placeholder="搜尋您的課表吧!(請輸入班級號)" v-model="cacheSearch">
+                        <input type="text" class="form-control" id="search" placeholder="快速搜尋您的課表吧!" v-model="cacheSearch">
 						
 							<select name="school" v-if="school_id" v-model="cacheID">
 								<option value="" disabled>請選擇您的班級</option>
 								<option v-for="(item, key) in filiterData" :key="key" :value="item.id" > {{item.name}} {{ item.id}} </option>
 							</select>
 
-							<section id="curriculum" style="text-align: center;" v-if="cacheID">
+							<div id="curriculum">
+								<section style="text-align: center;" v-if="cacheID">
+									<table class="alt">
+										<thead>
+											<tr>
+												<td v-for="(item,key) in data[0]" :key="key" v-html="item"></td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr v-for="(item, key) in data.slice(1)" :key="key">
+												<td v-for="(item2, key2) in item" :key="key2" v-html="item2"></td>
+											</tr>
+										</tbody>
+									</table>
+									<p style="color: red;">請注意！教室代碼為 地點(6)、樓層(7)、教室(01)，如6701。</p>
+								</section>
+							</div>
+							<section id="ClassroomInfo" class="main inactive">
                                 <table class="alt">
 									<thead>
 										<tr>
-											<td v-for="(item,key) in data[0]" :key="key" v-html="item"></td>
+											<td>開頭</td>
+											<td>位置</td>
+											<td>校區</td>
 										</tr>
 									</thead>
 									<tbody>
-										<tr v-for="(item, key) in data.slice(1)" :key="key">
-                                            <td v-for="(item2, key2) in item" :key="key2" v-html="item2"></td>
-                                        </tr>
+										<tr v-for="item in classroom">
+											<td>{{ item.position }}</td>
+											<td>{{ item.name }}</td>
+											<td>{{ item.address }}</td>
+										</tr>
 									</tbody>
 								</table>
 							</section>
@@ -127,39 +151,63 @@
                         cacheSearch: '',
 						cacheID: '',
 						school_id: [],
-						// department: [
-						// 	'資工',
-						// 	'護理',
-						// 	'企管',
-						// 	'國貿',
-						// 	'會資',
-						// 	'品設科菁英班',
-						// 	'資管',
-						// 	'日語',
-						// 	'英語',
-						// 	'資應菁英班',
-						// 	'保金',
-						// 	'體育',
-						// 	'日語',
-						// 	'英語',
-						// 	'保金',
-						// 	'老服',
-						// 	'美容',
-						// 	'商設',
-						// 	'品設',
-						// 	'商經',
-						// 	'通識',
-						// 	'休閒',
-						// 	'財稅',
-						// 	'應統',
-						// 	'多媒',
-						// 	'室設',
-						// 	'流管',
-						// 	'應中',
-						// 	'財金',
-						// 	'',
-						// 	'',
-						// ]
+						classroom: [
+							{
+								position: 1,
+								name: '行政大樓',
+								address: '三民校區'
+							},
+							{
+								position: 2,
+								name: '資訊館',
+								address: '三民校區'
+							},
+							{
+								position: 3,
+								name: '中正大樓',
+								address: '三民校區'
+							},
+							{
+								position: 4,
+								name: '昌明樓',
+								address: '三民校區'
+							},
+							{
+								position: 5,
+								name: '翰英樓',
+								address: '三民校區'
+							},
+							{
+								position: 6,
+								name: '弘業樓',
+								address: '三民校區'
+							},
+							{
+								position: 7,
+								name: '中商大樓',
+								address: '三民校區'
+							},
+							{
+								position: 8,
+								name: '奇秀樓',
+								address: '三民校區'
+							},
+							{
+								position: 'T',
+								name: '誠敬樓',
+								address: '民生校區'
+							},
+							{
+								position: 'R',
+								name: '仁愛樓',
+								address: '民生校區'
+							},
+							{
+								position: 'M',
+								name: '綜合大樓',
+								address: '民生校區'
+							}
+						]
 					}
 				},
 				methods:{

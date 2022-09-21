@@ -15,7 +15,7 @@ def getTable():
     id = request.args.get('id')
     if id == None:
         return 'Error: Please give me id parameter<3 <br> 錯誤: 請給我id喔~ 揪咪'
-        
+
     else:
         url = 'https://aisap.nutc.edu.tw/public/day/by_class.aspx?clsno=' + id
         data = requests.get(url).text
@@ -32,7 +32,7 @@ def getTable():
             for element in cols:
                 key += 1
     #            print(element.text)
-                temp_text = element.text.replace('｜', '~') \
+                temp_text = element.text.replace('｜', '<br>~<br>') \
                                         .replace(' / ', '<br>')
                 if key != 1 and key !=2:
                     if '、' in temp_text:
