@@ -1,0 +1,47 @@
+.head{
+	background-color: #33FFFF;font-family: DFKai-sb;color:red;font-weight: bold;font-size: 30px;
+	text-align: center;padding: 10px;
+}
+.content{
+	width:1000px;margin-left: auto;margin-right: auto;
+}
+.box{
+	width:280px;padding: 10px;margin: 10px;background-color: #00FF00;
+	display: inline-block;vertical-align: top;
+	font-family: DFKai-sb;
+	border-radius: 20px
+}
+.whiteBox{
+	width:280px;padding: 10px;margin: 10px;
+	display: inline-block;vertical-align: top;
+	font-family: DFKai-sb;
+	border-radius: 20px
+}
+.BoxOrange{
+	width:280px;padding: 10px;margin: 10px;background-color: orange;
+	display: inline-block;vertical-align: top;
+	border-radius: 10px
+}
+.BoxGreen{
+	width:280px;padding: 10px;margin: 10px;background-color: green;
+	display: inline-block;vertical-align: top;
+	border-radius: 20px
+}
+.BoxRed{
+	width:280px;padding: 10px;margin: 10px;background-color: red;
+	display: inline-block;vertical-align: top;
+	border-radius: 20px
+}
+.text{
+	font-size: 10px
+}
+.align-center{
+	text-align: center;
+}
+.copyright{
+	color:#00FF00;
+}
+@font-face {
+	font-family: MCeng;
+	src: url("../Minecraft_Regular/1_Minecraft-Regular.woff");
+}
