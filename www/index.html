@@ -56,12 +56,12 @@
                         <!-- Curriculum -->
                         <input type="text" class="form-control" id="search" placeholder="搜尋您的課表吧!(請輸入班級號)" v-model="cacheSearch">
 						
-							<select name="school" v-if="school_id" v-model="cacheSearch">
+							<select name="school" v-if="school_id" v-model="cacheID">
 								<option value="" disabled>請選擇您的班級</option>
-								<option v-for="(item, key) in school_id" :key="key" :value="item.id" > {{item.name}} {{ item.id}} </option>
+								<option v-for="(item, key) in filiterData" :key="key" :value="item.id" > {{item.name}} {{ item.id}} </option>
 							</select>
 
-							<section id="curriculum" style="text-align: center;" v-if="cacheSearch">
+							<section id="curriculum" style="text-align: center;" v-if="cacheID">
                                 <table class="alt">
 									<thead>
 										<tr>
@@ -125,7 +125,41 @@
 					return{
                         data: [],
                         cacheSearch: '',
-						school_id: []
+						cacheID: '',
+						school_id: [],
+						// department: [
+						// 	'資工',
+						// 	'護理',
+						// 	'企管',
+						// 	'國貿',
+						// 	'會資',
+						// 	'品設科菁英班',
+						// 	'資管',
+						// 	'日語',
+						// 	'英語',
+						// 	'資應菁英班',
+						// 	'保金',
+						// 	'體育',
+						// 	'日語',
+						// 	'英語',
+						// 	'保金',
+						// 	'老服',
+						// 	'美容',
+						// 	'商設',
+						// 	'品設',
+						// 	'商經',
+						// 	'通識',
+						// 	'休閒',
+						// 	'財稅',
+						// 	'應統',
+						// 	'多媒',
+						// 	'室設',
+						// 	'流管',
+						// 	'應中',
+						// 	'財金',
+						// 	'',
+						// 	'',
+						// ]
 					}
 				},
 				methods:{
@@ -141,7 +175,7 @@
 					this.getClassRoom();
 				},
                 watch: {
-                    cacheSearch: function (id){
+                    cacheID: function (id){
                         const url = 'https://api.tershi.com/getTable?id=' + id;
 						axios.get(url).then((res) => {
 							this.data = res.data;
@@ -149,7 +183,12 @@
                     }
                 },
 				computed:{
-                    
+                    filiterData(){
+						return this.school_id.filter((item) => {
+							// console.log(item);
+							return item.name.toUpperCase().match(this.cacheSearch.toUpperCase());
+						});
+    				}
 				}
 			};
 			Vue.createApp(App).mount('#app');
