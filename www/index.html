@@ -25,9 +25,9 @@
 	</head>
 	<body class="is-preload">		
 		<script type="text/javascript">
-			var cacheSearch = "<?php echo htmlspecialchars($_GET['search']); ?>";
+			// var cacheSearch = "<?php echo htmlspecialchars($_GET['search']); ?>";
 		</script>
-        <?php header('Access-Control-Allow-Origin: *'); ?>
+        <!-- <?php header('Access-Control-Allow-Origin: *'); ?> -->
 
 		<!-- Wrapper -->
 		<div id="app">
@@ -54,22 +54,14 @@
 					<div id="main">
                         <!-- {{data}} -->
                         <!-- Curriculum -->
-                        <input type="text" class="form-control" id="search" placeholder="搜尋您的課表吧!" v-model="cacheSearch">
+                        <input type="text" class="form-control" id="search" placeholder="搜尋您的課表吧!(請輸入班級號)" v-model="cacheSearch">
 						
-						<template v-if="cacheSearch">
 							<select name="school" v-if="school_id" v-model="cacheSearch">
-								<option disabled>請選擇您的班級</option>
-								<option v-for="(item, key) in school_id" :key="key" :value="item.id" > {{item.name}} </option>
+								<option value="" disabled>請選擇您的班級</option>
+								<option v-for="(item, key) in school_id" :key="key" :value="item.id" > {{item.name}} {{ item.id}} </option>
 							</select>
-						</template>
-						<!-- <template v-else>
-						<select name="school" v-if="school_id" >
-								<option selected="selected" disabled>請選擇您的班級</option>
-								<option v-for="(item, key) in school_id" :key="key" :value="item.id" > {{item.name}} </option>
-							</select>
-						</template> -->
+
 							<section id="curriculum" style="text-align: center;" v-if="cacheSearch">
-                            
                                 <table class="alt">
 									<thead>
 										<tr>
@@ -123,7 +115,7 @@
                                  data-full-width-responsive="true"></ins>
                             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
                     </center> -->
-        			<p class="copyright">&copy; Cutespirit <?php echo date("Y"); ?>.</p>
+        			<p class="copyright">&copy; Cutespirit 2022. <!--<?php echo date("Y"); ?>. --></p>
 				</footer>
 			</div>
 		</div>
@@ -145,7 +137,7 @@
 					}
 				},
 				created(){
-                    this.cacheSearch = cacheSearch;
+                    // this.cacheSearch = cacheSearch;
 					this.getClassRoom();
 				},
                 watch: {
