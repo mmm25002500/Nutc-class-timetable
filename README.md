@@ -8,7 +8,7 @@
 ## 執行 Run
 您必須要擁有的環境:
 - Python 3.9
-- Python flask)(pip)
+- Python flask(pip)
 
 ### 後端
 **Step 1.** 執行以下的 Bash 命令:
