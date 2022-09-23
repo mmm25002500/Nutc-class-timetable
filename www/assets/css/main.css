@@ -2727,6 +2727,10 @@ input, select, textarea {
 			padding: 0.75em 0.75em;
 		}
 
+		.hi {
+			padding: 0em 0em;
+		}
+
 		table th {
 			font-size: 0.9em;
 			font-weight: 400;
@@ -3764,14 +3768,15 @@ input, select, textarea {
 
 	#wrapper {
 		width: 64em;
-		max-width: calc(100% - 1em);
+		/* max-width: calc(100% - 1em); */
+		max-width: 100%;
 		margin: 0 auto;
 	}
 
 		@media screen and (max-width: 480px) {
 
 			#wrapper {
-				max-width: calc(100% - 2em);
+				/* max-width: calc(100% - 2em); */
 			}
 
 		}
