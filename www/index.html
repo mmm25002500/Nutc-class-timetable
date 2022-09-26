@@ -269,6 +269,37 @@
 			};
 			Vue.createApp(App).mount('#app');
 		</script>
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2160145108933116" crossorigin="anonymous"></script>
+
+				<!-- Messenger 洽談外掛程式 Code Start -->
+				<div id="fb-root"></div>
+
+				<!-- Your 洽談外掛程式 code -->
+				<div id="fb-customer-chat" class="fb-customerchat">
+				</div>
+		
+				<script async>
+				var chatbox = document.getElementById('fb-customer-chat');
+				chatbox.setAttribute("page_id", "537822183232239");
+				chatbox.setAttribute("attribution", "biz_inbox");
+		
+				window.fbAsyncInit = function() {
+					FB.init({
+					xfbml            : true,
+					version          : 'v12.0'
+					});
+				};
+		
+				(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = 'https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js';
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+				</script>
+				<!-- Messenger 洽談外掛程式 Code End -->
+				
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
