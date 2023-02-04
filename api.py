@@ -37,10 +37,16 @@ def getTable():
                 if key != 1 and key !=2:
                     if '、' in temp_text:
                         txt = temp_text[:len(temp_text)-15] + '<br>' + temp_text[len(temp_text)-15:]
-                        temp.append(txt)
+                        if txt == '<br>  ':
+                            temp.append('')
+                        else:
+                            temp.append(txt)
                     elif '星期' not in temp_text:
                         txt = temp_text[:len(temp_text)-11] + '<br>' + temp_text[len(temp_text)-11:]
-                        temp.append(txt)
+                        if txt == '<br>  ':
+                            temp.append('')
+                        else:
+                            temp.append(txt)
                     else:
                         temp.append(temp_text)
     #                temp.append(temp_text[len(temp_text)-11:])
