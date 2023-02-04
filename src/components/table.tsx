@@ -3,7 +3,6 @@ interface Props {
 }
 
 const table = (props: Props) => {
-  console.log(props.data)
 
   if (props.data.length === 0) {
     return (
@@ -18,7 +17,7 @@ const table = (props: Props) => {
           <tr>
             {
               props.data[0].map((item, index) => (
-                <th key={index} className="px-6 py-3">
+                <th key={index} className="text-xs sm:text-sm md:text-md px-0 sm:px-4 md:px-6 py-3 text-center">
                   {item}
                 </th>
                 )
@@ -33,9 +32,9 @@ const table = (props: Props) => {
               <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 {
                   item.map((item2, index2) => (
-                    <td key={index2} className="px-6 py-1" dangerouslySetInnerHTML={{__html: item2}}>
-
-                    </td>
+                    index2 === 1 ?
+                      <td key={index2} className="text-xs sm:text-sm md:text-md px-0 sm:px-4 md:px-6 py-1 text-center" dangerouslySetInnerHTML={{ __html: `${(item2 as String ).split('~')[0]} <br>~<br> ${(item2 as String ).split('~')[1]}` }} /> :
+                      <td key={index2} className="text-xs sm:text-sm md:text-md px-0 sm:px-4 md:px-6 py-1 text-center" dangerouslySetInnerHTML={{ __html: item2 }} />
                   ))
                 }
               </tr>
