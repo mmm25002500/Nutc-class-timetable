@@ -2,6 +2,8 @@ interface Props {
   data : [][]
 }
 
+const th = ['節次', '時間', '一', '二', '三', '四', '五', '六', '日']
+
 const table = (props: Props) => {
 
   if (props.data.length === 0) {
@@ -16,12 +18,11 @@ const table = (props: Props) => {
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             {
-              props.data[0].map((item, index) => (
+              th.map((item, index) => (
                 <th key={index} className="text-xs sm:text-sm md:text-md px-0 sm:px-4 md:px-6 py-3 text-center">
                   {item}
                 </th>
-                )
-              )
+              ))
             }
           </tr>
         </thead>
