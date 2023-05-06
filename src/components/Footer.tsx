@@ -1,4 +1,4 @@
-import ChangeLog from "../assets/ChangeLog.json";
+import ChangeLog from "../assets/changelog.json";
 
 const Footer = () => {
   return (
